@@ -12,6 +12,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int age = 15;
+  int weight = 75;
+  int height = 150;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,13 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 23.0.h,
                 width: 10.0.sp,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BMICRD(
+                    width: 156,
+                    height: 215,
                     title: 'AGE',
-                    value: '15',
-                    child: Row(
+                    value: age.toString(),
+                    lable: 'years',
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Bbutton(icon: Icons.remove),
@@ -57,9 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   BMICRD(
-                    title: 'Weight',
-                    value: '75',
-                    child: Row(
+                    width: 156,
+                    height: 215,
+                    title: 'WEIGHT',
+                    value: weight.toString(),
+                    lable: 'kg',
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Bbutton(icon: Icons.remove),
@@ -68,7 +78,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(height: 32.h),
+              BMICRD(
+                width: 156,
+                height: double.infinity,
+                title: 'HEIGHT',
+                value: height.toString(),
+                lable: 'CM',
+                child: Slider(
+                    value: height.toDouble(),
+                    activeColor: Colors.white,
+                    inactiveColor: Colors.white.withOpacity(0.45),
+                    min: 100.0,
+                    max: 220.0,
+                    onChanged: (newValue) {
+                      setState(() {
+                        height = newValue.toInt();
+                      });
+                    }),
+              ),
             ],
           ),
         ),

@@ -7,21 +7,29 @@ class BMICRD extends StatelessWidget {
     required this.title,
     required this.value,
     required this.child,
+    required this.lable,
+    required this.width,
+    required this.height,
   }) : super(key: key);
 
   final String title;
   final String value;
   final Widget child;
+  final String lable;
+  final double width;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 156.0.w,
-      height: 180.0.h,
+      width: width.w,
+      height: height.h,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0.sp),
           color: Theme.of(context).primaryColor),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
         children: [
           Text(
             title,
@@ -30,13 +38,28 @@ class BMICRD extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.w600),
           ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 64.0.sp,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
+          Row(
+            children: [
+              Text(
+                value,
+                style: TextStyle(
+                  fontSize: 64.0.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                width: 7.0.sp,
+              ),
+              Text(
+                lable,
+                style: TextStyle(
+                  fontSize: 16.0.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
           ),
           child,
         ],

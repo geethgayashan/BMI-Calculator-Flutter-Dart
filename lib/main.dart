@@ -1,6 +1,9 @@
 import 'package:calc/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:calc/BMI_crd.dart';
+import 'package:calc/Bmi_Button.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
